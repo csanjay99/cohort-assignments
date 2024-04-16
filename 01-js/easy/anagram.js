@@ -6,14 +6,17 @@
 
 function isAnagram(str1, str2) {
   if (str1.length === str2.length) {
-    let temp = str2;
-    for (let i = 0; i < str1.length; i++) {
-      const index = str2.indexOf(str1[i]);
-      if (index !== -1) {
-        temp = str2.replace(temp, str2)
-      }
+    temp1 = str1.toLowerCase().split('').sort().join('');
+    temp2 = str2.toLowerCase().split('').sort().join('');
+    // console.log(temp1);
+    // console.log(temp2);
+    if (temp1 === temp2) {
+      return true
     }
+    return false
+
   }
+  return false
 }
 
 module.exports = isAnagram;
