@@ -4,7 +4,29 @@
  * the function should return a promise just like before
  */
 
-function sleep(milliseconds) {
+async function sleep2(milliseconds) {
+
+    promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+        }, milliseconds);
+    });
+
+    await promise1;
+    console.log("Promise resolved now");
+    return promise1
+}
+
+function sleep(ms) {
+
+    return new Promise((resolve) => {
+        startTime = Date.now();
+        while (Date.now() - startTime < ms) {
+            //busy wait
+        }
+        resolve();
+    })
+
 }
 
 module.exports = sleep;
